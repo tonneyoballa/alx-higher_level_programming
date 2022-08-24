@@ -12,4 +12,3 @@ def uppercase(str):
                 print(("{}").format(strup))
         else:
             strup = strup + str[i]
-            

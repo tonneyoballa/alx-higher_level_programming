@@ -1,35 +1,63 @@
 #!/usr/bin/python3
+"""
+This is module 4-square
+This module contains one class Square
+A test suite has been built for this module in the tests folder
+It can be run with
+python3 -m doctest -v /tests/4-square.txt
+"""
+
+
 class Square:
-    """ A class that defines a square by its size
     """
+    This class Square creates a square from a size
+    **parameters**
+    size: needed for instantiation, hidden (should it be mentioned here ?)
+    **functions**
+    __init__(self, size)
+    area(self)
+    size(self)
+    size(self, value)
+    :Example:
+    x = Square(3)
+    """
+
     def __init__(self, size=0):
-        """ Method to initialize the square object
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        instantiate a Square object
+        Arguments:
+            size: must be a positive or null integer
+        """
+        self.size = size
 
     def area(self):
-        """ Method that returns the square are of the object
         """
-        return (self.__size ** 2)
+        computes the area of a square of a given size
+        No arguments
+        Return:
+            area of square (int)
+        """
+        return (self.__size * self.__size)
 
     @property
     def size(self):
-        """ Method to returns the size value
+        """
+        getter for the size attribute
+        No arguments
+        Return:
+            the size attribute
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ Method to set the size value of the square object
         """
-        if not isinstance(value, int):
+        setter for the size attribute
+        Arguments
+            value: value to be passed to size, should be an int >= 0
+        """
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value

@@ -1,47 +1,71 @@
 #!/usr/bin/python3
+"""
+This is module 5-square
+This module contains one class Square
+"""
+
+
 class Square:
-    """ A class that defines a square by its size
     """
+    This class Square creates a square from a size
+    **parameters**
+    size: needed for instantiation, hidden (should it be mentioned here ?)
+    **functions**
+    __init__(self, size)
+    area(self)
+    size(self)
+    size(self, value)
+    my_print(self)
+    :Example:
+    x = Square(3)
+    x.size = 5
+    x.area()
+    x.my_print()
+    """
+
     def __init__(self, size=0):
-        """ Method to initialize the square object
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        instantiate a Square object
+        Arguments:
+            size: must be a positive or null integer
+        """
+        self.size = size
 
     def area(self):
-        """ Method that returns the square are of the object
         """
-        return (self.__size ** 2)
+        computes the area of a square of a given size
+        No arguments
+        Return:
+            area of square (int)
+        """
+        return (self.__size * self.__size)
 
     @property
     def size(self):
-        """ Method to returns the size value
+        """
+        getter for the size attribute
+        No arguments
+        Return:
+            the size attribute
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ Method to set the size value of the square object
         """
-        if not isinstance(value, int):
+        setter for the size attribute
+        Arguments
+            value: value to be passed to size, should be an int >= 0
+        """
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     def my_print(self):
-        """ Method that prints a # square according
-        to the size value
         """
-        if not self.__size:
-            print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end='')
-                print()
+        prints the square in ascii art
+        no arguments
+        """
+        print("\n".join(["#" * self.__size for i in range(self.__size)]))

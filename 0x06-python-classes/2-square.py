@@ -1,13 +1,29 @@
 #!/usr/bin/python3
+"""
+This is module 2-square
+This module contains one class Square
+"""
+
+
 class Square:
-    """ A class that defines a square by its size
     """
+    This class Square does not do anything
+    **parameters**
+    size: needed for instantiation, hidden (should it be mentioned here ?)
+    **functions**
+    __init__(self, size)
+    :Example:
+    x = Square(3)
+    """
+
     def __init__(self, size=0):
-        """ Method to initialize the square object
         """
-        if not isinstance(size, int):
+        instantiate a Square object
+        Arguments:
+            size: must be a positive or null integer
+        """
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = int(size)
+        self.__size =
